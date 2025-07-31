@@ -1,9 +1,13 @@
 --vFunctions for handling timing
+TIMESTART = 0
 
+function timeStart()
+    TIMESTART = love.timer.getTime()
+end
 
 function elapsedTime()
     -- Returns the elapsed time since the start of the execution
-    return love.timer.getTime() - timeStart
+    return love.timer.getTime() - TIMESTART
 end
 
 

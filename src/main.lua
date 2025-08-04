@@ -2,6 +2,7 @@ function love.load()
     -- load in submodules
     timing = require('timing')
     keyCommands = require('keyCommands')
+    cursor = require('cursor')
     
     -- Setup GLobal variables
     timeStart = love.timer.getTime()
@@ -15,15 +16,17 @@ end
 
 
 function love.update()
-    x = x+1
+    cursorX, cursorY = getCursorPosition()
     sleep(DT, FPSCAP)
     CIRCLECOORDS = moveCircle(CIRCLECOORDS, CIRCLESPEED)
+    click = checkMouseClick()
 end
 
 
 function love.draw()
-    love.graphics.print("Hello World...again ..." .. tostring(getKeypress()), 40, 300)
+    love.graphics.print("Cursor Position ..." .. tostring(cursorX)..", "..tostring(cursorY), 40, 300)
     love.graphics.circle( "fill", CIRCLECOORDS[1], CIRCLECOORDS[2], CIRCLESIZE)
 
-    love.graphics.print("Hello World...again ..." .. tostring(elapsedTime()), 40, 100)
+    love.graphics.print("Current elapsed game time ..." .. tostring(elapsedTime()), 40, 100)
+    love.graphics.print("Mouse clicked ..." .. tostring(click), 40, 350)
 end

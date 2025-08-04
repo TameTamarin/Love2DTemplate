@@ -4,6 +4,7 @@ function getKeypress()
 end
 
 function moveCircle(coordinates, speed)
+    --These are commands are used for getting the events for when the arrow keys are pressed
     downPressed = love.keyboard.isScancodeDown( "down" )
     upPressed = love.keyboard.isScancodeDown( "up" )
     rightPressed = love.keyboard.isScancodeDown( "right" )

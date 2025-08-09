@@ -21,8 +21,11 @@ end
 
 
 function love.update()
-    cursorX, cursorY = getCursorPosition()
+    -- Control frame rate
     sleep(DT, FPSCAP)
+    
+    cursorX, cursorY = getCursorPosition()
+    
     CIRCLECOORDS = moveCircle(CIRCLECOORDS, CIRCLESPEED)
     click = checkMouseClick()
     if click then
